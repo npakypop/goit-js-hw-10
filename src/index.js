@@ -14,13 +14,12 @@ function onInput(event) {
     countryListRef.innerHTML = '';
     fetchCountries(event.target.value.trim())
     .then(data => {
-        console.log("onInput ~ data", data)
         if (data.length >= 10) {
              Notify.info('Too many matches found. Please enter a more specific name.');
         } else if (data.length > 1 && data.length < 10) {
+            countryInfoRef.innerHTML = '';
             creatList(data);
         } else if (data.length === 1) { 
-            console.log("onInput ~ data.length", data.length)
             creatCard(data[0]);
         }
     })     
@@ -41,7 +40,6 @@ function creatList(list) {
 }
 
 function creatCard(el) { 
-    console.log("element[0]", el) 
     countryInfoRef.innerHTML = `
       <div class="headline"><img class="flag_lg" src="${el.flags.png}" alt="${el.name.official}" width=90 height=60><h1 class="country_name">${el.name.official}</h1></div>
       <p class="descrip">Capital: <span class="value">${el.capital}</span></p>
