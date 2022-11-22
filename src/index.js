@@ -12,6 +12,9 @@ inputRef.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput(event) {
     countryListRef.innerHTML = '';
+    if (!event.target.value) { 
+        return;
+    }
     fetchCountries(event.target.value.trim())
     .then(data => {
         if (data.length >= 10) {
@@ -25,7 +28,7 @@ function onInput(event) {
     })     
     .catch(err => { 
         if (err.message === '404') { 
-             Notify.failure('раздуплись, ГОЛОВА, и введи правильное название страны');
+             Notify.failure('Введите правильное название страны');
         }
     })
 }
