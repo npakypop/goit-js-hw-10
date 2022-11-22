@@ -11,10 +11,39 @@ body {
   color: #212121;
   line-height: 1.5;
 }
-
+h1{
+  margin:0;
+}
 #search-box {
   font: inherit;
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+}
+
+.item_sm {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.headline {
+  display: inline-flex;
+  align-items:center;
+  gap: 15px;
+}
+
+.descrip {
+  font-weight: 800;
+}
+
+.country_name{
+  font-size: 45px;
+}
+
+.value{
+  font-weight: 400;
 }
